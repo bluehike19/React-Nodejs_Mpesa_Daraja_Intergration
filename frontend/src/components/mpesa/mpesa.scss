@@ -24,14 +24,23 @@
         padding: 20px;
         border-radius: 8px;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
 
         .close {
           color: #aaa;
-          float: right;
           font-size: 28px;
           font-weight: bold;
           cursor: pointer;
+          margin-top: -20px;
+          margin-left: 180px;
 
+          &:hover {
+            color: red;
+          }
           
         }
       }
