@@ -20,7 +20,7 @@ const Mpesa = () => {
           phoneNumber,
         }
       );
-      alert(response.data);
+      alert("payment success");
     } catch (error) {
       console.error(error.response.data);
     }
