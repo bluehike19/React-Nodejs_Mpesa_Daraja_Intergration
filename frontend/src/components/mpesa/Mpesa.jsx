@@ -27,7 +27,9 @@ const Mpesa = () => {
   };
   return (
     <div className="payment-container">
-      <button onClick={() => setShowModal(true)}>Check Out</button>
+      <button className="checkout" onClick={() => setShowModal(true)}>
+        Check Out
+      </button>
       {showModal && (
         <div className="modal">
           <div className="modal-content">
