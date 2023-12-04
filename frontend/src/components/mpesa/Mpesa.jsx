@@ -16,7 +16,7 @@ const Mpesa = () => {
     setSuccessMessage("");
   };
 
-  const handlePayment = async () => {
+  const initiateSTKPush = async () => {
     if (!amount || !phoneNumber) {
       setErrorMessage("Please provide both phone number and amount");
       return;
@@ -76,7 +76,7 @@ const Mpesa = () => {
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
-            <button onClick={handlePayment} disabled={loading}>
+            <button onClick={initiateSTKPush} disabled={loading}>
               {loading ? "Processing..." : "Pay"}
             </button>
             {errorMessage && <p style={{ color: "red" }}>{successMessage}</p>}
