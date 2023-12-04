@@ -17,7 +17,7 @@ const Mpesa = () => {
   };
 
   const handlePayment = async () => {
-    if (!amount || isNaN(amount) || amount <= 0 || !phoneNumber) {
+    if (!amount || !phoneNumber) {
       setErrorMessage("Please provide both phone number and amount");
       return;
     }
@@ -27,22 +27,30 @@ const Mpesa = () => {
     setSuccessMessage("");
 
     try {
+      await new Promise((resolve) => setTimeout(resolve, 1500));
       const response = await axios.post(
         "http://localhost:5000/api/initiatePayment",
         {
-          amount,
           phoneNumber,
+          amount,
         }
       );
+
+      const responseData = response.data;
+
       setPhoneNumber("");
       setAmount("");
       setShowModal(false);
       setLoading(false);
-      setSuccessMessage("Payment successfull");
+
+      if (responseData.success) {
+        setSuccessMessage("Payment successfull");
+      } else {
+        setErrorMessage("Payment failed. Please try again.");
+      }
     } catch (error) {
       setLoading(false);
       setErrorMessage("Payment failed. Please try again");
-      console.error(error.response.data);
     }
   };
   return (

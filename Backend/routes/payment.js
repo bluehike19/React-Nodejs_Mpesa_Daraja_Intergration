@@ -31,7 +31,7 @@ function validatePhoneNumber(phoneNumber) {
 router.post("/initiatePayment", async (req, res) => {
   const { amount, phoneNumber } = req.body;
 
-  if (!amount || isNaN(amount) || amount <= 0) {
+  if (!amount || isNaN(amount) || isNaN(amount)) {
     return res.status(400).json({ error: "Invalid Amount" });
   }
 
