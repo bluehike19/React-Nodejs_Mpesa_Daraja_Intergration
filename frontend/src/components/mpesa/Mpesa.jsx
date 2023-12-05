@@ -18,7 +18,7 @@ const Mpesa = () => {
 
   const initiateSTKPush = async () => {
     if (!amount || !phoneNumber) {
-      setErrorMessage("Please provide both phone number amount");
+      setErrorMessage("Please provide both phone and number amount");
       return;
     }
 
